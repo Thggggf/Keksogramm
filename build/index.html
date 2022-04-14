@@ -43,7 +43,7 @@
             </fieldset>
 
             <!-- Форма редактирования изображения -->
-            <div class="img-upload__overlay  hidden">
+            <div class="img-upload__overlay">
               <div class="img-upload__wrapper">
                 <div class="img-upload__preview-container">
 
@@ -57,7 +57,8 @@
 
                   <!-- Предварительный просмотр изображения -->
                   <div class="img-upload__preview">
-                    <img src="img/upload-default-image.jpg" alt="Предварительный просмотр фотографии">
+                    <img src="img/upload-default-image.jpg" class="img-upload__preview-inner"
+                      alt="Предварительный просмотр фотографии">
                   </div>
 
                   <!-- Изменение глубины эффекта, накладываемого на изображение -->
@@ -248,9 +249,9 @@
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
 
-  <!-- <script src="js/main.js" type="module"></script> -->
+  <script src="js/main.js" type="module"></script>
   <script src="./nouislider/nouislider.js"></script>
-  <script src="../source/js/main.js" type="module"></script>
+
 
 
 </body>

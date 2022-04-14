@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "kekstagram",
   "version": "22.0.0",
   "private": true,
@@ -28,6 +29,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "nouislider": "14.6.4"
+    "nouislider": "^14.6.4"
   }
 }

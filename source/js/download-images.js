@@ -1,4 +1,4 @@
-import { generateRandomPhotoCards } from "./data"
+import { generateRandomPhotoCards} from "./data.js"
 
 const imagesContainerElement = document.querySelector("#pictures-container")
 const pictureTemplateElement = document.querySelector("#picture").content
@@ -19,3 +19,4 @@ const renderRandomPhotos = function () {
   imagesContainerElement.appendChild(renderRandomPhotoFragment)
 
 }
+renderRandomPhotos()

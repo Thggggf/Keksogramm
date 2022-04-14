@@ -1,5 +1,4 @@
-import { attempt } from "lodash"
-
+import _ from "lodash"
 const isStringLength = function (str, maxLength) {
   return (str.length <= maxLength)
 }
