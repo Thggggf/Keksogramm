@@ -4,9 +4,11 @@ const pictureTemplateElement = document.querySelector("#picture").content
 const pictureElement = pictureTemplateElement.cloneNode(true)
 const fullScreenElement = document.querySelector(".big-picture.overlay")
 const cancelFullScreenElement = document.querySelector("#picture-cancel")
+const inputHashtagElement = document.querySelector(".text__hashtags")
+const inputDescriptionElement = document.querySelector(".text__description")
 
 const onPopupEscPress = (evt) => {
-  if (isEscEvent(evt)) {
+  if (isEscEvent(evt) && !(document.activeElement !== (inputHashtagElement || inputDescriptionElement))) {
     evt.preventDefault()
     closeFullScreen()
 
@@ -60,7 +62,8 @@ const renderFullScreen = function () {
 
 const openFullScreen = () => {
   fullScreenElement.classList.remove("hidden")
-  document.addEventListener("keydown", onPopupEscPress)
+
+  document.addEventListener("keydown", onPopupEscPress.bind(null, evt))
   renderFullScreen()
 
 
@@ -77,10 +80,10 @@ pictureElement.addEventListener("click", openFullScreen)
 cancelFullScreenElement.addEventListener("click", closeFullScreen)
 
 
+const closeIfEscape = (key) => {
+  if (key === ("Escape" || "Esc")) {
+    closeFullScreen()
+  }
+}
 
-
-
-
-
-
-
+const a = document.addEventListener("keydown", closeIfEscape.bind(null, evt.key))

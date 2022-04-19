@@ -1,4 +1,5 @@
 import noUiSlider from "nouislider"
+require('nouislider/distribute/nouislider.css');
 
 const sliderElement = document.querySelector(".effect-level__slider")
 const valueElement = document.querySelector(".effect-level__value")
@@ -26,7 +27,7 @@ const createSlider = function () {
   })
 }
 createSlider()
-let sliderExists;
+let sliderExists = true;
 
 let tempCustomProps = {
   filter: null,
@@ -37,6 +38,7 @@ let checkedBtn;
 
 const radioButtons = document.querySelector('input[name="effect"]')
 radioButtons.addEventListener("change", (evt) => {
+  if (sliderExists ? false : true) { createSlider() }
   tempCustomProps.filter = null
   tempCustomProps.postFix = null
   if (!evt.target.checked) {
@@ -107,7 +109,8 @@ radioButtons.addEventListener("change", (evt) => {
 sliderElement.noUiSlider.on("update", (values, handle) => {
   valueElement.value = values[handle]
   const editableImage = document.querySelector(".img-upload__preview-inner")
-  editableImage.setAttribute("style", `filter:${tempCustomProps.filter}(${value}${tempCustomProps.postFix})`)
+  editableImage.removeAttribute("filter")
+  editableImage.setAttribute("filter", `${tempCustomProps.filter}(${value}${tempCustomProps.postFix})`)
 })
 
 
